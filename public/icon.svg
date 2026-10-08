@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="128" fill="#fdf9f3" />
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#e0c298" stroke-width="4" stroke-opacity="0.6"/>
+  <circle cx="256" cy="256" r="180" fill="#ffffff" stroke="#725b38" stroke-width="3"/>
+  <!-- Tick marks -->
+  <line x1="256" y1="96" x2="256" y2="120" stroke="#725b38" stroke-width="5" stroke-linecap="round"/>
+  <line x1="256" y1="392" x2="256" y2="416" stroke="#725b38" stroke-width="5" stroke-linecap="round"/>
+  <line x1="96" y1="256" x2="120" y2="256" stroke="#725b38" stroke-width="5" stroke-linecap="round"/>
+  <line x1="392" y1="256" x2="416" y2="256" stroke="#725b38" stroke-width="5" stroke-linecap="round"/>
+  <!-- Watch Hands -->
+  <line x1="256" y1="256" x2="256" y2="150" stroke="#1c1c19" stroke-width="6" stroke-linecap="round"/>
+  <line x1="256" y1="256" x2="340" y2="256" stroke="#725b38" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="10" fill="#1c1c19"/>
+  <circle cx="256" cy="256" r="4" fill="#fedeb2"/>
+  <!-- Subdial -->
+  <circle cx="256" cy="320" r="32" fill="none" stroke="#ccc5bd" stroke-width="2"/>
+  <line x1="256" y1="320" x2="274" y2="310" stroke="#78603e" stroke-width="2" stroke-linecap="round"/>
+</svg>

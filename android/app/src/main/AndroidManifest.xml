@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kallos.chronology">
+
+    <!-- Essential Android Alarm & Notification Permissions -->
+    <!-- Required on Android 12+ (API 31+) for exact alarm scheduling -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    
+    <!-- Required on Android 13+ (API 33+) for apps where alarms are core features (clocks/calendars) -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    
+    <!-- Required on Android 13+ (API 33+) for posting high-priority heads-up notifications -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    
+    <!-- Wake lock to guarantee execution when device is in deep Doze / sleep mode -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+    <!-- Reschedule alarms automatically following system restart -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    
+    <!-- Haptic feedback for tactile horological alerts -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    
+    <!-- Foreground service for continuous audible crescendo dispatch sequences -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    
+    <!-- Real-time synchronization across Web and Android devices -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Kallos Chronology"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KallosChronology">
+
+        <!-- Main Horology Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+            <!-- Deep link handler for dispatch confirmations -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="kallos" android:host="commitment" />
+            </intent-filter>
+        </activity>
+
+        <!-- Exact Alarm Broadcast Receiver for Doze-proof Timely Reminders -->
+        <receiver
+            android:name=".receiver.KallosAlarmReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.kallos.chronology.ACTION_TRIGGER_ALARM" />
+                <action android:name="com.kallos.chronology.ACTION_SNOOZE_ALARM" />
+                <action android:name="com.kallos.chronology.ACTION_ACKNOWLEDGE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Device Boot Receiver to Restore Alarms -->
+        <receiver
+            android:name=".receiver.KallosBootReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Audio Crescendo Dispatch Service -->
+        <service
+            android:name=".service.KallosAlertService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+    </application>
+</manifest>

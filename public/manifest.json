@@ -1,0 +1,33 @@
+{
+  "id": "/",
+  "name": "Kallos Chronology",
+  "short_name": "Kallos",
+  "description": "Quiet luxury executive chronometer and temporal synchronization system across Web and Android with precise alarms, staged dispatch chains, and persistent alerts.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fdf9f3",
+  "theme_color": "#fdf9f3",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["productivity", "utilities", "lifestyle"]
+}

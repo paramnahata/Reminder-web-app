@@ -1,0 +1,6 @@
+{
+  "name": "Kallos Chronology",
+  "description": "Quiet luxury executive chronometer and temporal synchronization system across Web and Android with precise alarms, staged dispatch chains, and persistent alerts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
